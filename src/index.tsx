@@ -7,25 +7,25 @@ const app = new Hono()
 
 const users = [
   {
-    id:1,
-    name: 'farhan',
-    addres: 'sungai kunyit',
-    heigth: 160,
-    weight: 60
+    "id":1,
+    "name": 'farhan',
+    "addres": 'sungai kunyit',
+    "heigth": 160,
+    "weight": 60
   },
   {
-    id:2,
-    name: 'ibnu',
-    addres: 'parit banjar',
-    heigth: 160,
-    weight: 60
+    "id":2,
+    "name": 'ibnu',
+    "addres": 'parit banjar',
+    "heigth": 160,
+    "weight": 60
   },
   {
-    id:3,
-    name: 'aini',
-    addres: 'malikian',
-    heigth: 100,
-    weight: 40
+    "id":3,
+    "name": 'aini',
+    "addres": 'malikian',
+    "heigth": 100,
+    "weight": 40
   }
 ]
 
