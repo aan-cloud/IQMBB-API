@@ -48,6 +48,22 @@ app.get("/users/:id", (c) => {
   return c.json(founder);
 });
 
+app.post('/users', async (c) => {
+
+  try {
+    const data = await  c.req.json();
+    users.push(data);
+
+    return c.json({
+    message: "received",
+    dataReceived: data
+    });
+  } catch (err: any) {
+    return c.json({message: 'Error parsing JSON', error: err.message}, 400)
+  }
+  
+});
+
 
 // basic auth
 app.use('/admin/*',
