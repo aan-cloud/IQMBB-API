@@ -7,7 +7,7 @@ npm run dev
 open http://localhost:3000
 ```
 
-- Production: `https://projectname.yourname.com`
+- Production: `https://userapi.aan.com`
 - Local: `http://localhost:3000`
 
 | Endpoint     | HTTP     | Description       |
