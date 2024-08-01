@@ -39,7 +39,7 @@ let users: Users[] = [
 ]
 
 app.get('/', (c) => {
-  return c.text('Halo kamu ada di aplikasi saya')
+  return c.text('Hello, Welcome to user information API')
 });
 
 app.get('/users', (c) => {
