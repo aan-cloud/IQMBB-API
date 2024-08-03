@@ -9,6 +9,7 @@ interface Users {
   id: number,
   name: string,
   addres: string,
+  // height
   heigth: number,
   weight: number
 }
@@ -16,6 +17,7 @@ interface Users {
 
 let users: Users[] = [
   {
+    // no need to use double quotes (") for object literal
     "id": 1,
     "name": 'farhan',
     "addres": 'sungai kunyit',
@@ -63,6 +65,7 @@ app.post('/users', async (c) => {
     const data = await c.req.json();
     users.push(data);
 
+    // be consistent in your API response structure
     return c.json({
       message: "received",
       dataReceived: data
@@ -77,6 +80,7 @@ app.delete("/users", (c) => {
 
   try {
     users = [];
+    // be consistent in your API response structure
     return c.json({
       message: "users deleted",
       data: users
