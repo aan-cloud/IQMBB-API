@@ -9,33 +9,19 @@ interface Users {
   id: number,
   name: string,
   addres: string,
-  heigth: number,
+  height: number,
   weight: number
 }
 
 
 let users: Users[] = [
   {
-    "id": 1,
-    "name": 'farhan',
-    "addres": 'sungai kunyit',
-    "heigth": 160,
-    "weight": 60
+    id: 1,
+    name: 'farhan',
+    addres: 'sungai kunyit',
+    height: 160,
+    weight: 60
   },
-  {
-    "id": 2,
-    "name": 'ibnu',
-    "addres": 'parit banjar',
-    "heigth": 160,
-    "weight": 60
-  },
-  {
-    "id": 3,
-    "name": 'aini',
-    "addres": 'malikian',
-    "heigth": 100,
-    "weight": 40
-  }
 ]
 
 app.get('/', (c) => {
@@ -65,7 +51,7 @@ app.post('/users', async (c) => {
 
     return c.json({
       message: "received",
-      dataReceived: data
+      data: data
     });
   } catch (err: any) {
     return c.json({ message: 'Error parsing JSON', error: err.message }, 400)
@@ -97,7 +83,7 @@ app.delete("/users/:id", async (c) => {
 
     return c.json({
       messsage: `sucsess delete user id: ${c.req.param("id"), 200}`,
-      deletedUser: userToDelete
+      data: userToDelete
     });
   } catch (error: any) {
     return c.json({ message: 'Error DELETE Users Data', error: error.message }, 400)
