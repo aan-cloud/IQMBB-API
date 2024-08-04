@@ -2,6 +2,7 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { basicAuth } from 'hono/basic-auth'
 import { json } from 'stream/consumers'
+import Home from "./page"
 
 const app = new Hono()
 
@@ -24,12 +25,15 @@ let users: Users[] = [
   },
 ]
 
-app.get('/', (c) => {
-  return c.text('Halo kamu ada di aplikasi saya')
+app.get('/', async (c) => {
+  return await c.html(Home())
 });
 
 app.get('/users', (c) => {
-  return c.json(users)
+  return c.json({
+    message: 'succes',
+    data: users
+  });
 });
 
 app.get("/users/:id", (c) => {
@@ -40,7 +44,10 @@ app.get("/users/:id", (c) => {
     return c.json({ message: 'user not found' }, 404)
   }
 
-  return c.json(founder);
+  return c.json({
+    message: 'suscces to get user',
+    data: founder
+  });
 });
 
 app.post('/users', async (c) => {
