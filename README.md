@@ -20,14 +20,14 @@ open http://localhost:3000
 
 #### Operator
 
-| Endpoint        | HTTP     | Description                      |
-| --------------- | -------- | -------------------------------- |
-| `/operator`     | `GET`    | Get all operator                 |
-| `/operator/:en` | `GET`    | Get operator by employee number  |
-| `/operator`     | `POST`   | Add new operator                 |
-| `/operator`     | `DELETE` | Delete all operator              |
-| `/operator/:en` | `DELETE` | Delete operator employee number  |
-| `/operator/:id` | `PUT`    | Update operator employee number  |
+| Endpoint        | HTTP     | Description         |
+| --------------- | -------- | --------------------|
+| `/operator`     | `GET`    | Get all operator    |
+| `/operator/:id` | `GET`    | Get operator by id  |
+| `/operator`     | `POST`   | Add new operator    |
+| `/operator`     | `DELETE` | Delete all operator |
+| `/operator/:id` | `DELETE` | Delete operator id  |
+| `/operator/:id` | `PUT`    | Update operator id  |
 
 #### Section
 

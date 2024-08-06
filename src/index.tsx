@@ -1,114 +1,160 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { basicAuth } from 'hono/basic-auth'
-import { json } from 'stream/consumers'
 import Home from "./page"
+import { json } from 'stream/consumers'
 
 const app = new Hono()
 
-interface Users {
-  id: number,
-  name: string,
-  addres: string,
-  height: number,
-  weight: number
-}
-
-
-let users: Users[] = [
-  {
-    id: 1,
-    name: 'farhan',
-    addres: 'sungai kunyit',
-    height: 160,
-    weight: 60
-  },
-]
-
+// operator
 app.get('/', async (c) => {
   return await c.html(Home())
 });
 
-app.get('/users', (c) => {
+app.get('/operator', (c) => {
   return c.json({
     message: 'succes',
-    data: users
+    data: 'data'
   });
 });
 
-app.get("/users/:id", (c) => {
-  const idReq = parseInt(c.req.param("id"), 10);
-  const founder = users.find(user => user.id === idReq);
-
-  if (!founder) {
-    return c.json({ message: 'user not found' }, 404)
-  }
-
+app.get("/operator/:id", (c) => {
   return c.json({
-    message: 'suscces to get user',
-    data: founder
+    message: 'succes',
+    data: 'data'
+  })
+});
+
+app.post('/operator', async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
   });
 });
 
-app.post('/users', async (c) => {
-
-  try {
-    const data = await c.req.json();
-    users.push(data);
-
-    return c.json({
-      message: "received",
-      data: data
-    });
-  } catch (err: any) {
-    return c.json({ message: 'Error parsing JSON', error: err.message }, 400)
-  }
-
+app.delete("/operator", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
 });
 
-app.delete("/users", (c) => {
-
-  try {
-    users = [];
-    return c.json({
-      message: "users deleted",
-      data: users
-    }, 200);
-  } catch (error: any) {
-    return c.json({ message: 'Error DELETE Users Data', error: error.message }, 400)
-  }
-
+app.delete("/operator/:id", async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
 });
 
-app.delete("/users/:id", async (c) => {
+// section
 
-  try {
-    const userId = parseInt(c.req.param("id"), 10);
-    const userToDelete = users.filter(user => user.id === userId);
-    const userIndex = users.findIndex(user => user.id === userId);
-    users.splice(userIndex, 1);
-
-    return c.json({
-      messsage: `sucsess delete user id: ${c.req.param("id"), 200}`,
-      data: userToDelete
-    });
-  } catch (error: any) {
-    return c.json({ message: 'Error DELETE Users Data', error: error.message }, 400)
-  }
-
+app.get('/section', (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
 });
 
-
-// basic auth
-app.use('/admin/*',
-  basicAuth({
-    username: 'aan',
-    password: 'mana saya tau',
+app.get("/section/:id", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
   })
-);
+});
 
-app.get('/admin', (c) => {
-  return c.text('You are authorized!')
+app.post('/section', async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/section", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/section/:id", async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+// machine
+
+app.get('/machine', (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.get("/machine/:id", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  })
+});
+
+app.post('/machine', async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/machine", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/machine/:id", async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+// tube
+
+app.get('/tube', (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.get("/tube/:id", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  })
+});
+
+app.post('/tube', async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/tube", (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
+});
+
+app.delete("/tube/:id", async (c) => {
+  return c.json({
+    message: 'succes',
+    data: 'data'
+  });
 });
 
 const port: number = 3000;
