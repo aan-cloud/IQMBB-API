@@ -1,8 +1,14 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import { basicAuth } from 'hono/basic-auth'
 import Home from "./page"
 import { json } from 'stream/consumers'
+
+// Beberapa pertanyaan untuk mas ben
+// 1. Apakah CRUD data bisa di handle menggunakan DBMS atau pakai logic di javaScript?
+// 2. Business Logic itu apa dan implementasi nya seperti apa?
+// 3. Apakah untuk routing sebaik nya di buat folder terpisah saja? Jika iya berikan tutor nya 
+// 4. Mengapa posgreSql fitur nya sangat banyak dan complex apakah itu semua akan kepakai di ranah junior?
+// 5. Jangan lupa ERD saya di berikan masukan, kritik, saran, dll. hehe
 
 const app = new Hono()
 
