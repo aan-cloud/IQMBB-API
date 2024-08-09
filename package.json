@@ -1,11 +1,22 @@
 {
   "name": "user-api",
+  "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.tsx"
+    "dev": "tsx watch src/index.ts",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.12.0",
-    "hono": "^4.5.2"
+    "@prisma/client": "^5.18.0",
+    "hono": "^4.5.2",
+    "prisma": "^5.18.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
@@ -13,7 +24,8 @@
     "eslint": "^8.57.0",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
-    "tsx": "^4.7.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "prisma": "*",
+    "tsx": "*"
   }
 }

@@ -1,11 +1,18 @@
 import { Hono } from "hono";
+import { PrismaClient } from "@prisma/client";
 
 const operatorRoutes = new Hono();
+const prisma = new PrismaClient();
 
-operatorRoutes.get('/', (c) => {
+operatorRoutes.get('/', async (c) => {
+    const posts = await prisma.operator.findUnique({
+        where: {
+           id: 'p002'
+        }
+    });
     return c.json({
         message: 'succes',
-        data: 'data'
+        data:{...posts}
     });
 });
 
@@ -17,9 +24,17 @@ operatorRoutes.get("/:id", (c) => {
 });
 
 operatorRoutes.post('/', async (c) => {
+    const post = await prisma.operator.create({
+        data: {
+            id: 'p005',
+            name: 'aanibnu',
+            addres: 'secapah',
+            healty: true
+        }
+    });
     return c.json({
         message: 'succes',
-        data: 'data'
+        data: post
     });
 });
 

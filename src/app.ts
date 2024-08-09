@@ -5,10 +5,10 @@ import sectionRoutes from './routers/sectionRoutes';
 import machineRoutes from './routers/machineRoutes';
 import tubeRoutes from './routers/tubeRoutes';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/', async (c) => {
-    return await c.html(Home())
+    return  c.html(Home());
 });
 
 app.route('/operator', operatorRoutes);
