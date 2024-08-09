@@ -3,51 +3,47 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class sectionService {
-    async getAllOperator () {
-        return await prisma.operator.findMany({});
+    async getAllsection() {
+        return await prisma.section.findMany({});
     }
 
-    async getOperatorById(id: string) {
-        return await prisma.operator.findUnique({
+    async getSectionById(id: string) {
+        return await prisma.section.findUnique({
             where: {
                 id: id
             }
         });
     }
 
-    async postOperator(operator: any) {
-        return await prisma.operator.create({
+    async postSection(section: any) {
+        return await prisma.section.create({
             data: {
-                id: operator.id,
-                name: operator.name,
-                addres: operator.addres,
-                healty: operator.healty
+                id: section.id,
+                name: section.name
             }
         });
     }
 
-    async deleteAllOperator() {
-        return await prisma.operator.deleteMany({});
+    async deleteAllSection() {
+        return await prisma.section.deleteMany({});
     }
 
-    async deleteOperatorById(id: string) {
-        return await prisma.operator.delete({
+    async deleteSectionById(id: string) {
+        return await prisma.section.delete({
             where: {
                 id: id
             }
         });
     }
 
-    async updateOperatorById(id: string, operator: any) {
-        return prisma.operator.update({
+    async updateSectionById(id: string, section: any) {
+        return prisma.section.update({
             where: {
                 id: id
             },
             data: {
-                id: operator.id,
-                name: operator.name,
-                addres: operator.addres,
-                healty: operator.healty
+                id: section.id,
+                name: section.name,
             }
         });
     }
