@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+// REVIEW: Don't mix class-based and function-based code. Choose one.
 class machineService {
     async getAllmachine() {
         return await prisma.machine.findMany({});

@@ -5,12 +5,14 @@ import { getAllOperators } from "@/controller/operatorController";
 const operatorRoutes = new Hono();
 const prisma = new PrismaClient();
 
+// REVIEW: Refrain from using controller, because you will lose TypeScript benefit.
 operatorRoutes.get('/', getAllOperators);
 
 operatorRoutes.get("/:id", (c) => {
     return c.json({
         message: 'succes',
         data: 'data'
+        // REVIEW: Setup formatter (prettier) to not miss semicolon.
     })
 });
 
