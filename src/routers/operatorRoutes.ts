@@ -1,20 +1,11 @@
 import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client";
+import { getAllOperators } from "@/controller/operatorController";
 
 const operatorRoutes = new Hono();
 const prisma = new PrismaClient();
 
-operatorRoutes.get('/', async (c) => {
-    const posts = await prisma.operator.findUnique({
-        where: {
-           id: 'p002'
-        }
-    });
-    return c.json({
-        message: 'succes',
-        data:{...posts}
-    });
-});
+operatorRoutes.get('/', getAllOperators);
 
 operatorRoutes.get("/:id", (c) => {
     return c.json({
