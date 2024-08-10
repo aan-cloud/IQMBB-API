@@ -18,9 +18,41 @@ model operator{
   name String
   addres String
   healty Boolean
+  scedules scedule[]
 }
 
 model section {
   id String @id
   name String? @unique
+
+  scedules scedule[]
+}
+
+model machine {
+  id String @id
+  model String
+
+  scedules scedule[]
+}
+
+model tube {
+  id String @id
+  part String
+  size Int
+
+  scedules scedule[]
+}
+
+model scedule {
+  id String @id
+  operator String
+  section String
+  machine String
+  tube String
+  start DateTime
+  end DateTime
+  id_operator operator @relation(fields: [operator], references: [id])
+  id_section section @relation(fields: [section], references: [id])
+  id_machine machine @relation(fields: [machine], references: [id])
+  id_tube tube @relation(fields: [tube], references: [id])
 }
