@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import Home from './page';
+import Home from '../public/page'
 import operatorRoutes from './routers/operatorRoutes';
 import sectionRoutes from './routers/sectionRoutes';
 import machineRoutes from './routers/machineRoutes';
