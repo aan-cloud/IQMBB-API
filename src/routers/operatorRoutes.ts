@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import operatorService from "@/services/operatorServices";
+import { operatorValidationSchema } from "@/middleware/operatorValidation";
+import { zValidator } from "@hono/zod-validator"
 
 const operatorRoutes = new Hono();
 const services = new operatorService();
@@ -21,8 +23,8 @@ operatorRoutes.get("/:id",async (c) => {
     })
 });
 
-operatorRoutes.post('/', async (c) => {
-   const data = await c.req.json();
+operatorRoutes.post('/', zValidator('json', operatorValidationSchema), async (c) => {
+   const data =  c.req.valid('json')
    const post = await services.postOperator(data); 
 
    return  c.json({
@@ -48,9 +50,9 @@ operatorRoutes.delete("/:id", async (c) => {
     });
 });
 
-operatorRoutes.patch("/:id", async(c) => {
+operatorRoutes.patch("/:id", zValidator('json', operatorValidationSchema), async(c) => {
     const id = c.req.param('id');
-    const updateData =  await c.req.json();
+    const updateData = c.req.valid('json');
     const data = await services.updateOperatorById(id, updateData);
 
     return c.json({
