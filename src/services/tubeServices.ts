@@ -19,7 +19,7 @@ class tubeService {
         return await prisma.tube.create({
             data: {
                 id: tube.id,
-                part: tube.name,
+                part: tube.part,
                 size: tube.size
             }
         });
