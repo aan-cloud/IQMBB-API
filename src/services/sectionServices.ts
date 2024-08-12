@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 class sectionService {
-    async getAllsection() {
+    async getAllSection() {
         return await prisma.section.findMany({});
     }
 
