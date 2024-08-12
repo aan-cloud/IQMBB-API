@@ -1,11 +1,17 @@
 import { Hono } from "hono";
-import { PrismaClient } from "@prisma/client";
-import { getAllOperators } from "@/controller/operatorController";
+import operatorService from "@/services/operatorServices";
 
 const operatorRoutes = new Hono();
-const prisma = new PrismaClient();
+const services = new operatorService();
 
-operatorRoutes.get('/', getAllOperators);
+operatorRoutes.get('/', async(c) => {
+    const data = await services.getAllOperator();
+    console.log(data)
+    c.json({
+        message: 'success',
+        data: data
+    }, 200);
+});
 
 operatorRoutes.get("/:id", (c) => {
     return c.json({
@@ -15,18 +21,13 @@ operatorRoutes.get("/:id", (c) => {
 });
 
 operatorRoutes.post('/', async (c) => {
-    const post = await prisma.operator.create({
-        data: {
-            id: 'p005',
-            name: 'aanibnu',
-            addres: 'secapah',
-            healty: true
-        }
-    });
-    return c.json({
-        message: 'succes',
-        data: post
-    });
+   const data = await c.req.json();
+   const post = await services.postOperator(data); 
+
+   return  c.json({
+    message: 'succes',
+    data: post
+   }, 200)
 });
 
 operatorRoutes.delete("/", (c) => {

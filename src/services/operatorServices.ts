@@ -1,10 +1,16 @@
 import { PrismaClient } from "@prisma/client";
+import Joi from "joi";
 
 const prisma = new PrismaClient();
 
+const schema = Joi.object({
+    id: Joi.string().min(3).max(5).required()
+})
+
 class operatorService {
     async getAllOperator () {
-        return await prisma.operator.findMany({});
+        const allOperator = await prisma.operator.findMany()
+        return allOperator
     }
 
     async getOperatorById(id: string) {

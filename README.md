@@ -64,7 +64,7 @@ open http://localhost:3000
 | `/operator`     | `POST`   | Add new operator    |
 | `/operator`     | `DELETE` | Delete all operator |
 | `/operator/:id` | `DELETE` | Delete operator id  |
-| `/operator/:id` | `PUT`    | Update operator id  |
+| `/operator/:id` | `PATCH`  | Update operator id  |
 
 #### Section
 
@@ -75,7 +75,7 @@ open http://localhost:3000
 | `/section`      | `POST`   | Add new section       |
 | `/section`      | `DELETE` | Delete all section    |
 | `/section/:id`  | `DELETE` | Delete section by id  |
-| `/operator/:id` | `PUT`    | Update section by id  |
+| `/operator/:id` | `PATCH`  | Update section by id  |
 
 #### Machine
 
@@ -86,7 +86,7 @@ open http://localhost:3000
 | `/machine`      | `POST`   | Add new machine       |
 | `/machine`      | `DELETE` | Delete all machine    |
 | `/machine/:id`  | `DELETE` | Delete machine by id  |
-| `/machine/:id`  | `PUT`    | Update machine by id  |
+| `/machine/:id`  | `PATCH`  | Update machine by id  |
 
 #### Tube
 
@@ -97,7 +97,7 @@ open http://localhost:3000
 | `/tube`         | `POST`   | Add new tube          |
 | `/tube`         | `DELETE` | Delete all tube       |
 | `/tube/:id`     | `DELETE` | Delete tube by id     |
-| `/tube/:id`     | `PUT`    | Update tube by id     |
+| `/tube/:id`     | `PATCH`  | Update tube by id     |
 
 #### Scedule
 
@@ -108,4 +108,4 @@ open http://localhost:3000
 | `/scedule`      | `POST`   | Add new scedule       |
 | `/scedule`      | `DELETE` | Delete all scedule    |
 | `/scedule/:id`  | `DELETE` | Delete scedule by id  |
-| `/scedule/:id`  | `PUT`    | Update scedule by id  |
+| `/scedule/:id`  | `PATCH`  | Update scedule by id  |
