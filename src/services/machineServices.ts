@@ -1,6 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+    // datasourceUrl: 'postgresql://farhan:farhanadmin111@database:5432/iqmbb?schema=public',
+});
 
 class machineService {
     async getAllmachine() {
