@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import sectionService from "@/services/sectionServices";
+import { zValidator } from "@hono/zod-validator";
+import { sectionValidationSchema } from "@/middleware/sectionValidation";
 
 const sectionRoutes = new Hono();
 const service = new sectionService();
@@ -20,7 +22,7 @@ const data = await service.getAllSection();
     });
   });
   
-  sectionRoutes.post('/', async (c) => {
+  sectionRoutes.post('/', zValidator('json', sectionValidationSchema), async (c) => {
     const data = await c.req.json();
     const postedData = await service.postSection(data);
     return c.json({
@@ -46,7 +48,7 @@ const data = await service.getAllSection();
     });
   });
 
-  sectionRoutes.patch("/:id", async (c) => {
+  sectionRoutes.patch("/:id",zValidator('json', sectionValidationSchema), async (c) => {
     const id =  c.req.param('id');
     const dataToUpdate = await c.req.json();
     const updatedData = await service.updateSectionById(id, dataToUpdate);
