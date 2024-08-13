@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import machineService from "@/services/machineServices";
-import { machineValidationSchema } from "@/middleware/machineValidation";
+import { machineValidationSchema } from "@/validation/machineValidation";
 import { zValidator } from "@hono/zod-validator";
 
 const machineRoutes = new Hono();

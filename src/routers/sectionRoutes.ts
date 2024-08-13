@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import sectionService from "@/services/sectionServices";
 import { zValidator } from "@hono/zod-validator";
-import { sectionValidationSchema } from "@/middleware/sectionValidation";
+import { sectionValidationSchema } from "@/validation/sectionValidation";
 
 const sectionRoutes = new Hono();
 const service = new sectionService();
