@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import tubeService from "@/services/tubeServices";
-
+import { tubeValidationSchema } from "@/validation/tubeValidation";
+import { zValidator } from "@hono/zod-validator";
 
 const tubeRoutes = new Hono();
 const service = new tubeService();
@@ -22,8 +23,8 @@ tubeRoutes.get('/', async (c) => {
     })
   });
   
-  tubeRoutes.post('/', async (c) => {
-    const data = await c.req.json();
+  tubeRoutes.post('/', zValidator('json', tubeValidationSchema), async (c) => {
+    const data = await c.req.valid('json');
     const postedData = await service.postTube(data);
 
     return c.json({
@@ -49,7 +50,7 @@ tubeRoutes.get('/', async (c) => {
     });
   });
 
-  tubeRoutes.patch("/:id", async (c) => {
+  tubeRoutes.patch("/:id",zValidator('json', tubeValidationSchema), async (c) => {
     const id = c.req.param('id');
     const dataToUpdate = await c.req.json();
     const updatedData = await service.updateTubeById(id, dataToUpdate);
