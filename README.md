@@ -52,7 +52,7 @@ npm run dev
 open http://localhost:3000
 ```
 
-- Production: `https://iqmbb.aan.com`
+- Production: `https://iqmbb-api.onrender.com`
 - Local: `http://localhost:3000`
 
 #### Operator
