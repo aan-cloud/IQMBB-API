@@ -23,7 +23,7 @@ const data = await service.getAllSection();
   });
   
   sectionRoutes.post('/', zValidator('json', sectionValidationSchema), async (c) => {
-    const data = await c.req.json();
+    const data =  c.req.valid('json');
     const postedData = await service.postSection(data);
     return c.json({
       message: 'succes',
@@ -50,7 +50,7 @@ const data = await service.getAllSection();
 
   sectionRoutes.patch("/:id",zValidator('json', sectionValidationSchema), async (c) => {
     const id =  c.req.param('id');
-    const dataToUpdate = await c.req.json();
+    const dataToUpdate = c.req.valid('json');
     const updatedData = await service.updateSectionById(id, dataToUpdate);
 
     return c.json({

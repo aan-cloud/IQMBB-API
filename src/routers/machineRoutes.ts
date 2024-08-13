@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import machineService from "@/services/machineServices";
+import { machineValidationSchema } from "@/middleware/machineValidation";
+import { zValidator } from "@hono/zod-validator";
 
 const machineRoutes = new Hono();
 const service = new machineService();
@@ -23,8 +25,8 @@ machineRoutes.get('/', async (c) => {
     });
   });
   
-  machineRoutes.post('/', async (c) => {
-    const data = await c.req.json();
+  machineRoutes.post('/', zValidator('json', machineValidationSchema), async (c) => {
+    const data = c.req.valid('json');
     const postedData = await service.postMachine(data);
 
     return c.json({
@@ -51,9 +53,9 @@ machineRoutes.get('/', async (c) => {
     });
   });
 
-  machineRoutes.patch("/:id", async (c) => {
+  machineRoutes.patch("/:id",zValidator('json', machineValidationSchema), async (c) => {
     const id = c.req.param('id');
-    const dataToUpdate = await c.req.json();
+    const dataToUpdate = c.req.valid('json');
     const updatedData = await service.updateMachineById(id, dataToUpdate);
 
     return c.json({
