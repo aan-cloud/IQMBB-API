@@ -26,11 +26,13 @@
     "@types/node": "^20.11.17",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.57.0",
+    "globals": "^15.9.0",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
     "prisma": "^5.18.0",
     "tsx": "*",
     "typescript": "^4.9.5",
+    "typescript-eslint": "^8.1.0",
     "zod": "^3.23.8"
   }
 }

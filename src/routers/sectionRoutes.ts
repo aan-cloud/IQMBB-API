@@ -6,57 +6,68 @@ import { sectionValidationSchema } from "@/validation/sectionValidation";
 const sectionRoutes = new Hono();
 const service = new sectionService();
 
-sectionRoutes.get('/', async (c) => {
-const data = await service.getAllSection();
+sectionRoutes.get("/", async (c) => {
+  const data = await service.getAllSection();
 
-    return c.json({
-      message: 'succes',
-      data: data
-    });
+  return c.json({
+    message: "succes",
+    data: data,
   });
-  
-  sectionRoutes.get("/:id", (c) => {
-    return c.json({
-      message: 'succes',
-      data: 'data'
-    });
+});
+
+sectionRoutes.get("/:id", (c) => {
+  return c.json({
+    message: "succes",
+    data: "data",
   });
-  
-  sectionRoutes.post('/', zValidator('json', sectionValidationSchema), async (c) => {
-    const data =  c.req.valid('json');
+});
+
+sectionRoutes.post(
+  "/",
+  zValidator("json", sectionValidationSchema),
+  async (c) => {
+    const data = c.req.valid("json");
     const postedData = await service.postSection(data);
-    return c.json({
-      message: 'succes',
-      data: postedData
-    }, 200);
-  });
-  
-  sectionRoutes.delete("/", async (c) => {
-    const data = await service.deleteAllSection();
-    return c.json({
-      message: 'succes',
-      data: data
-    });
-  });
-  
-  sectionRoutes.delete("/:id", async (c) => {
-    const id = c.req.param('id');
-    const data = service.deleteSectionById(id);
-    return c.json({
-      message: 'succes',
-      data: data
-    });
-  });
+    return c.json(
+      {
+        message: "succes",
+        data: postedData,
+      },
+      200,
+    );
+  },
+);
 
-  sectionRoutes.patch("/:id",zValidator('json', sectionValidationSchema), async (c) => {
-    const id =  c.req.param('id');
-    const dataToUpdate = c.req.valid('json');
+sectionRoutes.delete("/", async (c) => {
+  const data = await service.deleteAllSection();
+  return c.json({
+    message: "succes",
+    data: data,
+  });
+});
+
+sectionRoutes.delete("/:id", async (c) => {
+  const id = c.req.param("id");
+  const data = await service.deleteSectionById(id);
+  return c.json({
+    message: "succes",
+    data: data,
+  });
+});
+
+sectionRoutes.patch(
+  "/:id",
+  zValidator("json", sectionValidationSchema),
+  async (c) => {
+    const id = c.req.param("id");
+    const dataToUpdate = c.req.valid("json");
     const updatedData = await service.updateSectionById(id, dataToUpdate);
 
     return c.json({
-      message: 'succes',
-      data: updatedData
+      message: "succes",
+      data: updatedData,
     });
-  });
+  },
+);
 
-  export default sectionRoutes;
+export default sectionRoutes;

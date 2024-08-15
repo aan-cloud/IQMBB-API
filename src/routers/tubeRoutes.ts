@@ -20,7 +20,7 @@ tubeRoutes.get('/', async (c) => {
     return c.json({
       message: 'succes',
       data: data
-    })
+    });
   });
   
   tubeRoutes.post('/', zValidator('json', tubeValidationSchema), async (c) => {
