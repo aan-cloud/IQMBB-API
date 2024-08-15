@@ -7,8 +7,8 @@ import tubeRoutes from "./routers/tubeRoutes";
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.html(Home());
+app.get("/", async (c) => {
+  return await c.html(Home());
 });
 
 app.route("/operator", operatorRoutes);

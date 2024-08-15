@@ -17,11 +17,11 @@ class machineService {
     });
   }
 
-  async postMachine(machine: { id: string; name: string }) {
+  async postMachine(machine: { id: string; model: string }) {
     return await prisma.machine.create({
       data: {
         id: machine.id,
-        model: machine.name,
+        model: machine.model,
       },
     });
   }
@@ -38,14 +38,14 @@ class machineService {
     });
   }
 
-  async updateMachineById(id: string, machine: { id: string; name: string }) {
+  async updateMachineById(id: string, machine: { id: string; model: string }) {
     return await prisma.machine.update({
       where: {
         id: id,
       },
       data: {
         id: machine.id,
-        model: machine.name,
+        model: machine.model,
       },
     });
   }

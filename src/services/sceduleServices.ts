@@ -7,7 +7,7 @@ class sceduleService {
     return await prisma.scedule.findMany({});
   }
 
-  async getSceduleById(id: string) {
+  async getSceduleById(id: number) {
     return await prisma.scedule.findUnique({
       where: {
         id: id,
@@ -16,7 +16,7 @@ class sceduleService {
   }
 
   async postScedule(scedule: {
-    id: string;
+    id: number;
     operator: string;
     section: string;
     machine: string;
@@ -41,7 +41,7 @@ class sceduleService {
     return await prisma.scedule.deleteMany({});
   }
 
-  async deletesceduleById(id: string) {
+  async deletesceduleById(id: number) {
     return await prisma.scedule.delete({
       where: {
         id: id,
@@ -50,9 +50,9 @@ class sceduleService {
   }
 
   async updatesceduleById(
-    id: string,
+    id: number,
     scedule: {
-      id: string;
+      id: number;
       operator: string;
       section: string;
       machine: string;
