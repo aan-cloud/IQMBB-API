@@ -3,10 +3,10 @@ import sceduleService from "@/services/sceduleServices";
 import { sceduleValidationSchema } from "@/validation/sceduleValidation";
 import { zValidator } from "@hono/zod-validator";
 
-const tubeRoutes = new Hono();
+const sceduleRoutes = new Hono();
 const service = new sceduleService();
 
-tubeRoutes.get("/", async (c) => {
+sceduleRoutes.get("/", async (c) => {
   const data = await service.getAllScedule();
   return c.json({
     message: "succes",
@@ -14,7 +14,7 @@ tubeRoutes.get("/", async (c) => {
   });
 });
 
-tubeRoutes.get("/:id", async (c) => {
+sceduleRoutes.get("/:id", async (c) => {
   const id = parseInt(c.req.param("id"));
   const data = await service.getSceduleById(id);
   return c.json({
@@ -23,17 +23,21 @@ tubeRoutes.get("/:id", async (c) => {
   });
 });
 
-tubeRoutes.post("/", zValidator("json", sceduleValidationSchema), async (c) => {
-  const data = c.req.valid("json");
-  const postedData = await service.postScedule(data);
+sceduleRoutes.post(
+  "/",
+  zValidator("json", sceduleValidationSchema),
+  async (c) => {
+    const data = c.req.valid("json");
+    const postedData = await service.postScedule(data);
 
-  return c.json({
-    message: "succes",
-    data: postedData,
-  });
-});
+    return c.json({
+      message: "succes",
+      data: postedData,
+    });
+  },
+);
 
-tubeRoutes.delete("/", async (c) => {
+sceduleRoutes.delete("/", async (c) => {
   const data = await service.deleteAllscedule();
   return c.json({
     message: "succes",
@@ -41,7 +45,7 @@ tubeRoutes.delete("/", async (c) => {
   });
 });
 
-tubeRoutes.delete("/:id", async (c) => {
+sceduleRoutes.delete("/:id", async (c) => {
   const id = parseInt(c.req.param("id"));
   const data = await service.deletesceduleById(id);
   return c.json({
@@ -50,7 +54,7 @@ tubeRoutes.delete("/:id", async (c) => {
   });
 });
 
-tubeRoutes.patch(
+sceduleRoutes.patch(
   "/:id",
   zValidator("json", sceduleValidationSchema),
   async (c) => {
@@ -65,4 +69,4 @@ tubeRoutes.patch(
   },
 );
 
-export default tubeRoutes;
+export default sceduleRoutes;

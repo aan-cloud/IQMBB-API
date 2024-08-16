@@ -4,6 +4,7 @@ import operatorRoutes from "./routers/operatorRoutes";
 import sectionRoutes from "./routers/sectionRoutes";
 import machineRoutes from "./routers/machineRoutes";
 import tubeRoutes from "./routers/tubeRoutes";
+import sceduleRoutes from "./routers/sceduleRoutes";
 
 const app = new Hono();
 
@@ -15,5 +16,6 @@ app.route("/operator", operatorRoutes);
 app.route("/section", sectionRoutes);
 app.route("/machine", machineRoutes);
 app.route("/tube", tubeRoutes);
+app.route("/scedule", sceduleRoutes);
 
 export default app;

@@ -15,6 +15,7 @@ services:
     env_file:
       - path: .env
         required: true
+    command: ["postgres", "-c", "log_statement=all"]
 #     volumes:
 #       - postgres-data:/var/lib/postgresql/data
 

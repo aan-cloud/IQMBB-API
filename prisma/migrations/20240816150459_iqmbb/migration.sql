@@ -35,7 +35,7 @@ CREATE TABLE "tube" (
 
 -- CreateTable
 CREATE TABLE "scedule" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
     "operator" TEXT NOT NULL,
     "section" TEXT NOT NULL,
     "machine" TEXT NOT NULL,
