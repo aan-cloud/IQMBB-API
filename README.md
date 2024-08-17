@@ -35,11 +35,9 @@ A tube is a crucial element in the production process, with different stages of 
 You can see all information about tubes by accessing the API in the table below.
 
 
-#### ``Scedule``
 A schedule is a timeline that organizes the various tasks involved in the production of tubes, ensuring that each section completes its work in a sequential and efficient manner.
 
 You can see all information about schedules by accessing the API in the table below.
-
 
 ### Run this project
 
@@ -99,13 +97,13 @@ open http://localhost:3000
 | `/tube/:id`     | `DELETE` | Delete tube by id     |
 | `/tube/:id`     | `PATCH`  | Update tube by id     |
 
-#### Scedule
+#### Schedule
 
 | Endpoint        | HTTP     | Description           |
-| --------------- | -------- | ----------------------|
-| `/scedule`      | `GET`    | Get all scedule       |
-| `/scedule/:id`  | `GET`    | Get scedule by id     |
-| `/scedule`      | `POST`   | Add new scedule       |
-| `/scedule`      | `DELETE` | Delete all scedule    |
-| `/scedule/:id`  | `DELETE` | Delete scedule by id  |
-| `/scedule/:id`  | `PATCH`  | Update scedule by id  |
+| --------------- | -------- | --------------------- |
+| `/schedule`     | `GET`    | Get all schedule      |
+| `/schedule/:id` | `GET`    | Get schedule by id    |
+| `/schedule`     | `POST`   | Add new schedule      |
+| `/schedule`     | `DELETE` | Delete all schedule   |
+| `/schedule/:id` | `DELETE` | Delete schedule by id |
+| `/schedule/:id` | `PATCH`  | Update schedule by id |

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const sceduleValidationSchema = z.object({
+export const scheduleValidationSchema = z.object({
   id: z.number(),
   operator: z.string().min(4).includes("IQM"),
   section: z.string().min(4),

@@ -34,7 +34,7 @@ CREATE TABLE "tube" (
 );
 
 -- CreateTable
-CREATE TABLE "scedule" (
+CREATE TABLE "schedule" (
     "id" SERIAL NOT NULL,
     "operator" TEXT NOT NULL,
     "section" TEXT NOT NULL,
@@ -43,20 +43,20 @@ CREATE TABLE "scedule" (
     "start" TIMESTAMP(3) NOT NULL,
     "end" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "scedule_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "schedule_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
 CREATE UNIQUE INDEX "section_name_key" ON "section"("name");
 
 -- AddForeignKey
-ALTER TABLE "scedule" ADD CONSTRAINT "scedule_operator_fkey" FOREIGN KEY ("operator") REFERENCES "operator"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "schedule" ADD CONSTRAINT "schedule_operator_fkey" FOREIGN KEY ("operator") REFERENCES "operator"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "scedule" ADD CONSTRAINT "scedule_section_fkey" FOREIGN KEY ("section") REFERENCES "section"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "schedule" ADD CONSTRAINT "schedule_section_fkey" FOREIGN KEY ("section") REFERENCES "section"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "scedule" ADD CONSTRAINT "scedule_machine_fkey" FOREIGN KEY ("machine") REFERENCES "machine"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "schedule" ADD CONSTRAINT "schedule_machine_fkey" FOREIGN KEY ("machine") REFERENCES "machine"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "scedule" ADD CONSTRAINT "scedule_tube_fkey" FOREIGN KEY ("tube") REFERENCES "tube"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "schedule" ADD CONSTRAINT "schedule_tube_fkey" FOREIGN KEY ("tube") REFERENCES "tube"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

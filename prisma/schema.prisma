@@ -18,21 +18,21 @@ model operator{
   name String
   addres String
   healty Boolean
-  scedules scedule[]
+  schedules schedule[]
 }
 
 model section {
   id String @id
   name String? @unique
 
-  scedules scedule[]
+  schedules schedule[]
 }
 
 model machine {
   id String @id
   model String
 
-  scedules scedule[]
+  schedules schedule[]
 }
 
 model tube {
@@ -40,10 +40,10 @@ model tube {
   part String
   size Int
 
-  scedules scedule[]
+  schedules schedule[]
 }
 
-model scedule {
+model schedule {
   id Int  @id @default(autoincrement())
   operator String
   section String
