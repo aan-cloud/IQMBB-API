@@ -8,7 +8,6 @@ export default [
   {
     rules: {
       "no-unused-vars": "error",
-      "no-unused-vars": "error",
       "prefer-const": "error",
       semi: "error",
       "require-await": "error",
