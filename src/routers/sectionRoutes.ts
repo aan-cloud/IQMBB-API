@@ -15,10 +15,12 @@ sectionRoutes.get("/", async (c) => {
   });
 });
 
-sectionRoutes.get("/:id", (c) => {
+sectionRoutes.get("/:id", async (c) => {
+  const id = c.req.param("id");
+  const data = await service.deleteSectionById(id);
   return c.json({
     message: "succes",
-    data: "data",
+    data: data,
   });
 });
 
