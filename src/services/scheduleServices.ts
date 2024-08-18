@@ -16,6 +16,7 @@ class scheduleService {
   }
 
   async postSchedule(schedule: {
+    id: number;
     operator: string;
     section: string;
     machine: string;
@@ -25,6 +26,7 @@ class scheduleService {
   }) {
     return await prisma.schedule.create({
       data: {
+        id: schedule.id,
         operator: schedule.operator,
         section: schedule.section,
         machine: schedule.machine,
