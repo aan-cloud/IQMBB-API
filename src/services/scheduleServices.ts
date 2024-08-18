@@ -21,8 +21,8 @@ class scheduleService {
     section: string;
     machine: string;
     tube: string;
-    start: Date;
-    end: Date;
+    start: string;
+    end: string;
   }) {
     return await prisma.schedule.create({
       data: {
@@ -57,8 +57,8 @@ class scheduleService {
       section: string;
       machine: string;
       tube: string;
-      start: Date;
-      end: Date;
+      start: string;
+      end: string;
     },
   ) {
     return await prisma.schedule.update({
