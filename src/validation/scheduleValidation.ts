@@ -6,6 +6,6 @@ export const scheduleValidationSchema = z.object({
   section: z.string().min(4),
   machine: z.string().min(3),
   tube: z.string().min(4),
-  start: z.string().date(),
-  end: z.string().date(),
+  start: z.string(),
+  end: z.string(),
 });
