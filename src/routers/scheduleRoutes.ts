@@ -27,7 +27,7 @@ scheduleRoutes.post(
   "/",
   zValidator("json", scheduleValidationSchema),
   async (c) => {
-    const data = c.req.valid("json");
+    const data: any = c.req.valid("json");
     const postedData = await service.postSchedule(data);
 
     return c.json({
