@@ -49,8 +49,8 @@ model schedule {
   section String
   machine String
   tube String
-  start String
-  end String
+  start DateTime
+  end DateTime
   id_operator operator @relation(fields: [operator], references: [id])
   id_section section @relation(fields: [section], references: [id])
   id_machine machine @relation(fields: [machine], references: [id])
