@@ -44,6 +44,10 @@ A schedule is a timeline that organizes the various tasks involved in the produc
 
 You can see all information about schedules by accessing the API in the table below.
 
+### ERD
+
+![image](./public/ERD.png)
+
 ### Run this project
 
 ```
