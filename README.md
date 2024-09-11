@@ -62,6 +62,8 @@ open http://localhost:3000
 - Production: `https://iqmbb-api.onrender.com`
 - Local: `http://localhost:3000`
 
+### API Spec
+
 #### Operator
 
 | Endpoint        | HTTP     | Description         |
