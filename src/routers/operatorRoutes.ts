@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import operatorService from "@/services/operatorServices";
-import { operatorValidationSchema } from "@/validation/operatorValidation";
+import { operatorValidationSchema } from "@/schema/operatorValidation";
 import { zValidator } from "@hono/zod-validator";
 
 const operatorRoutes = new Hono();

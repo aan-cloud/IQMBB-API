@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import scheduleService from "@/services/scheduleServices";
-import { scheduleValidationSchema } from "@/validation/scheduleValidation";
+import { scheduleValidationSchema } from "@/schema/scheduleValidation";
 import { zValidator } from "@hono/zod-validator";
 
 const scheduleRoutes = new Hono();
