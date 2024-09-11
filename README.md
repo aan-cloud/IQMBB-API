@@ -8,9 +8,9 @@ Let's find out what you want to look for here.
 
 So what is IQMBB?
 
-Is an industrial company operating in the automotive parts sector and is a branch of INDUSTRIAL QUALITY MANAGEMENT.
+Is an industrial company operating in the automotive parts sector and is a branch of **INDUSTRIAL QUALITY MANAGEMENT**.
 
-This application will contain some information about IQMBB (INDUSTRIAL QUALITY MANAGEMENT BUKIT BERUNTUNG).
+This application will contain some information about IQMBB INDUSTRIAL **QUALITY MANAGEMENT BUKIT BERUNTUNG**.
 
 **What information?**
 
